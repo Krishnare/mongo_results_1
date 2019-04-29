@@ -1,0 +1,8 @@
+
+TASK4
+
+db.restaurants.find({'grades.score' : { '$lt': 7 }})
+
+db.restaurants.find({'grades':{$eleMatch: {'grades.score' : { '$lt': 7 }}})
+
+db.restaurants.find({}, {'grade.8.score':1 , "name":1, "_id":0})
