@@ -1,5 +1,5 @@
 
-TASK4
+TASK: 3.4
 
 db.restaurants.find({'grades.score' : { '$lt': 7 }})
 

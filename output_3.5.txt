@@ -1,5 +1,5 @@
 
-TASK5
+TASK: 3.5
 
 db.restaurants.find({ "grades.date": {$gte: ISODate("2014-03-11T00:00:00Z"), $lte: ISODate("2014-02-11T00:00:00Z")}, "grades.grade":"B", "cuisine": "Seafood"}, {"_id" : 1,"name":1});
 
