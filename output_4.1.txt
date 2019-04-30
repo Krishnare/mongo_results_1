@@ -1,0 +1,33 @@
+TASK: 4.1
+
+db.restaurants.find({ name: "Glorious Food" }).explain();
+
+{
+        "queryPlanner" : {
+                "plannerVersion" : 1,
+                "namespace" : "frontcamp.restaurants",
+                "indexFilterSet" : false,
+                "parsedQuery" : {
+                        "name" : {
+                                "$eq" : "Glorious Food"
+                        }
+                },
+                "winningPlan" : {
+                        "stage" : "COLLSCAN", 
+                        "filter" : {
+                                "name" : {
+                                        "$eq" : "Glorious Food"
+                                }
+                        },
+                        "direction" : "forward"
+                },
+                "rejectedPlans" : [ ]
+        },
+        "serverInfo" : {
+                "host" : "EPINHYDW0656",
+                "port" : 27017,
+                "version" : "4.0.9",
+                "gitVersion" : "fc525e2d9b0e4bceff5c2201457e564362909765"
+        },
+        "ok" : 1
+}
