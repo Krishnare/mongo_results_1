@@ -1,0 +1,70 @@
+TASK: 4.2
+
+db.restaurants.createIndex({"name": "Glorious Food"})
+
+{
+        "ok" : 0,
+        "errmsg" : "Unknown index plugin 'Glorious Food'",
+        "code" : 67,
+        "codeName" : "CannotCreateIndex"
+}
+
+db.restaurants.createIndex({"name": 1})
+{
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "ok" : 1
+}
+>  db.restaurants.find({ name: "Glorious Food" })
+
+
+{ "_id" : ObjectId("5cd57bf89638a087eb1f82f4"), "address" : { "building" : "522", "coord" : [ -73.95171, 40.767461 ], "street" : "East   74 Street", "zipcode" : "10021" }, "borough" : "Manhattan", "cuisine" : "American", "grades" : [ { "date" : ISODate("2014-09-02T00:00:00Z"), "grade" : "A", "score" : 12 }, { "date" : ISODate("2013-12-19T00:00:00Z"), "grade" : "B", "score" : 16 }, { "date" : ISODate("2013-05-28T00:00:00Z"), "grade" : "A", "score" : 9 }, { "date" : ISODate("2012-12-07T00:00:00Z"), "grade" : "A", "score" : 13 }, { "date" : ISODate("2012-03-29T00:00:00Z"), "grade" : "A", "score" : 11 } ], "name" : "Glorious Food", "restaurant_id" : "40361521" }
+> db.restaurants.find({ name: "Glorious Food" }).explain()
+{
+        "queryPlanner" : {
+                "plannerVersion" : 1,
+                "namespace" : "frontcamp.restaurants",
+                "indexFilterSet" : false,
+                "parsedQuery" : {
+                        "name" : {
+                                "$eq" : "Glorious Food"
+                        }
+                },
+                "winningPlan" : {
+                        "stage" : "FETCH",
+                        "inputStage" : {
+                                "stage" : "IXSCAN",
+                                "keyPattern" : {
+                                        "name" : 1
+                                },
+                                "indexName" : "name_1",
+                                "isMultiKey" : false,
+                                "multiKeyPaths" : {
+                                        "name" : [ ]
+                                },
+                                "isUnique" : false,
+                                "isSparse" : false,
+                                "isPartial" : false,
+                                "indexVersion" : 2,
+                                "direction" : "forward",
+                                "indexBounds" : {
+                                        "name" : [
+                                                "[\"Glorious Food\", \"Glorious Food\"]"
+                                        ]
+                                }
+                        }
+                },
+                "rejectedPlans" : [ ]
+        },
+        "serverInfo" : {
+                "host" : "EPINHYDW0656",
+                "port" : 27017,
+                "version" : "4.0.9",
+                "gitVersion" : "fc525e2d9b0e4bceff5c2201457e564362909765"
+        },
+        "ok" : 1
+}
+
+
+
