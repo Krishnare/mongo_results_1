@@ -1,4 +1,0 @@
-TASK: 3.1
-
-db.restaurants.find( {  "borough": "Queens" ,  $or : [ { "cuisine" : "Chinese" } ]  }  ).count()
-728

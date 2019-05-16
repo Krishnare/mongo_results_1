@@ -1,0 +1,1 @@
+db.airlines.aggregate([{$match:{"destCountry":{"$nin":["United States"]}}}, {$group:{_id:"$destCity", avgPassengers:{$avg:"$passengers"}}}, {$sort:{avgPassengers:-1}},{$limit:3}])

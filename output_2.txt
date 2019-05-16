@@ -1,1 +1,0 @@
-db.restaurants.find({ borough: "Brooklyn" }).count()6086

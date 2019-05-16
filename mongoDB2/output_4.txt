@@ -1,0 +1,1 @@
+db.airlines.aggregate([{$match:{$and:[{"originCountry":"United States"}, {$or:[{"destCountry":"Greece"}, {"destCountry":"Italy"}, {"destCountry":"Spain"}]}]}},{$group:{_id:"$carrier", total:{$sum:"$passengers"}}},{$sort:{total:-1}}, {$skip: 3},{$limit: 7}])

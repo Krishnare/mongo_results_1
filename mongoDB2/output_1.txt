@@ -1,0 +1,1 @@
+ db.airlines.aggregate([{$group: {_id: {airlines: "$carrier", classname: "$class"}, totalPassengerCount: {$sum: "$passengers"}}}])
