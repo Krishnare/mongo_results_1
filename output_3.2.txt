@@ -1,19 +1,6 @@
 TASK: 3.2
-
-
-//Top 1
-db.restaurants.aggregate({ $group : { _id: 1, max: { $max : "$grades" }}})
-
-
-//Top1
-db.restaurants.find({}, {"restaurant_id":1}).sort({"grades.score":1, "_id":1}).limit(1)
-
-
-//Top 10 List
-db.restaurants.find({}, {"restaurant_id" :1}).sort({"grades.score":-1}).limit(10);
-
-
-
+  db.restaurants.aggregate([{$project: {gradeMax: { $max: "$grades.score"}, "restaurant_id":"$restaurant_id"}},{$sort:{gradeMax:-1}},{$limit:1}])
+{ "_id" : ObjectId("5cda658bcc4dd701131cc1e3"), "gradeMax" : 86, "restaurant_id" : "50000040" }
 
 
 

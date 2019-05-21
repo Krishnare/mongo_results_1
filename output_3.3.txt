@@ -1,8 +1,22 @@
 TASK: 3.3
 
-db.restaurants.updateMany( { "borough": "Manhattan" }, { $set: { grade: "A", score: 7, date: ISODate()  } });
+
+
+db.restaurants.updateMany(
+    { "borough": "Manhattan"},
+    { "$push": 
+        {"grades": 
+            {
+                "grade": "A",
+                "score": 7,
+		        "date": ISODate()
+            }
+        }
+    }
+)
 
 { "acknowledged" : true, "matchedCount" : 10259, "modifiedCount" : 10259 }
+
 
 
 

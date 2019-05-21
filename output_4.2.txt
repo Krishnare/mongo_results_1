@@ -1,9 +1,5 @@
 TASK: 4.2
 
 
-db.restaurants.find({"name" : "Sal'S Deli"}).explain()
-db.restaurants.dropIndex({name: 1})
- db.restaurants.createIndex({'restaurant_id': 1})
-
-db.restaurants.find({restaurant_id: "41098650"},{_id: 0}).explain()
+db.restaurants.deleteMany({"cuisine":"Chinese", "borough":"Queens"})
 
