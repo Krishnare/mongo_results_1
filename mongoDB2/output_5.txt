@@ -1,0 +1,41 @@
+Question 5:
+5. Find the city (originCity) with the highest sum of passengers for each state (originState) of the United States (originCountry). Provide the city for the first 5 states ordered by state alphabetically (you should see the city for Alaska, Arizona and etc). Show result as { "totalPassengers" : 999, "location" : { "state" : "abc", "city" : "xyz" } }
+
+db.airlines.aggregate([{$match:{"originCountry":"United States"}},{$group:{_id:{originState:"$originState", originCity:"$originCity"}, totalPassengers:{$max:{$sum:"$passengers"}}}},{"$sort":{"_id.originState": 1, "totalPassengers": -1}}, {"$group":{"_id":"$_id.originState","cityname":{"$first":"$_id.originCity"}, totalPas:{"$first":"$totalPassengers"}}},{"$sort":{"_id": 1}},{$limit:5},{$project: {_id:0, totalPassengers:"$totalPas", location: {city: "$cityname", state: "$_id"}}}])
+
+Ans:
+{
+        "totalPassengers" : 35021,
+        "location" : {
+                "city" : "Birmingham, AL",
+                "state" : "Alabama"
+        }
+}
+{
+        "totalPassengers" : 88556,
+        "location" : {
+                "city" : "Anchorage, AK",
+                "state" : "Alaska"
+        }
+}
+{
+        "totalPassengers" : 54071,
+        "location" : {
+                "city" : "Phoenix, AZ",
+                "state" : "Arizona"
+        }
+}
+{
+        "totalPassengers" : 24661,
+        "location" : {
+                "city" : "Little Rock, AR",
+                "state" : "Arkansas"
+        }
+}
+{
+        "totalPassengers" : 82575,
+        "location" : {
+                "city" : "San Francisco, CA",
+                "state" : "California"
+        }
+}
