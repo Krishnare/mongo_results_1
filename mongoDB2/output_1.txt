@@ -1,28 +1,10 @@
 Question 1:
 1. How many records does each airline class have? Use $project to show result as { class: "Z", total: 999 } 
 
+db.airlines.aggregate([{$group:{_id:"$class",count:{$sum:1}}},{$project: {_id: 0, class:"$_id", total: "$count"}}])
 
-db.airlines.aggregate([{$group: {_id: {airlines: "$carrier", classname: "$class"}, totalPassengerCount: {$sum: "$passengers"}}}])
-
-
-Ans:
-{ "_id" : { "airlines" : "Taca Peru", "classname" : "F" }, "totalPassengerCount" : 92691 }
-{ "_id" : { "airlines" : "Aerolineas Argentinas", "classname" : "F" }, "totalPassengerCount" : 307368 }
-{ "_id" : { "airlines" : "Air Japan Co", "classname" : "F" }, "totalPassengerCount" : 50622 }
-{ "_id" : { "airlines" : "Egyptair", "classname" : "F" }, "totalPassengerCount" : 87932 }
-{ "_id" : { "airlines" : "Santa Barbara Airlines, C.A", "classname" : "F" }, "totalPassengerCount" : 113587 }
-{ "_id" : { "airlines" : "Japan Air Lines Co. Ltd.", "classname" : "F" }, "totalPassengerCount" : 795119 }
-{ "_id" : { "airlines" : "Ukraine International Airlines", "classname" : "F" }, "totalPassengerCount" : 75796 }
-{ "_id" : { "airlines" : "Avior Airlines, C.A.", "classname" : "F" }, "totalPassengerCount" : 68295 }
-{ "_id" : { "airlines" : "Qatar Airways (Q.C.S.C)", "classname" : "F" }, "totalPassengerCount" : 1100345 }
-{ "_id" : { "airlines" : "All Nippon Airways Co.", "classname" : "F" }, "totalPassengerCount" : 1023443 }
-{ "_id" : { "airlines" : "Etihad Airways", "classname" : "F" }, "totalPassengerCount" : 702238 }
-{ "_id" : { "airlines" : "Elysair d/b/a L'Avion", "classname" : "F" }, "totalPassengerCount" : 78202 }
-{ "_id" : { "airlines" : "WOW Air ehf", "classname" : "F" }, "totalPassengerCount" : 465027 }
-{ "_id" : { "airlines" : "Tame Linea Aerea del Ecuador Tme EP", "classname" : "F" }, "totalPassengerCount" : 119202 }
-{ "_id" : { "airlines" : "Austrian Airlines", "classname" : "F" }, "totalPassengerCount" : 323542 }
-{ "_id" : { "airlines" : "Air Serbia", "classname" : "F" }, "totalPassengerCount" : 39975 }
-{ "_id" : { "airlines" : "Royal Air Maroc", "classname" : "F" }, "totalPassengerCount" : 132251 }
-{ "_id" : { "airlines" : "Scandinavian Airlines Sys.", "classname" : "F" }, "totalPassengerCount" : 775080 }
-{ "_id" : { "airlines" : "Azerbaijan Airlines CJSC", "classname" : "F" }, "totalPassengerCount" : 20353 }
-{ "_id" : { "airlines" : "Hong Kong Express Airways Limited", "classname" : "F" }, "totalPassengerCount" : 30155 }
+Answ:
+{ "class" : "F", "total" : 140343 }
+{ "class" : "L", "total" : 23123 }
+{ "class" : "P", "total" : 5683 }
+{ "class" : "G", "total" : 17499 }
