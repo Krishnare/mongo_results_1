@@ -1,5 +1,7 @@
-TASK: 4.2
+Question 4.2
 
+4.2  Drop index from task 4.1
 
+Query:
 db.restaurants.deleteMany({"cuisine":"Chinese", "borough":"Queens"})
 

@@ -1,25 +1,30 @@
 
-TASK: 3.5
+Question 3.5
+What are _id and borough of “Seafood” (cuisine) restaurants  which received at least one “B” grade in period from 2014-02-01 to 2014-03-01? Use projection to include only _id and borough.
 
-db.restaurants.find({ "grades.date": {$gte: ISODate("2014-02-01"), $lte: ISODate("2014-03-01")}, "grades.grade":"B", "cuisine": "Seafood"}, {"_id" : 0,"name":1});
 
-{ "name" : "Lenny'S Clam Bar" }
-{ "name" : "One If By Land Two If By Sea" }
-{ "name" : "Seashore Restaurant" }
-{ "name" : "Tony'S Pier Restaurant" }
-{ "name" : "Pete'S Clam Stop" }
-{ "name" : "City Crab" }
-{ "name" : "El Tina Fish Market & Seafood Restaurant" }
-{ "name" : "Fish" }
-{ "name" : "Esca" }
-{ "name" : "A Salt & Battery" }
-{ "name" : "Surf Bar" }
-{ "name" : "Mary'S Fish Camp" }
-{ "name" : "Wild Edibles" }
-{ "name" : "Mermaid Inn" }
-{ "name" : "Red Lobster" }
-{ "name" : "Red Lobster" }
-{ "name" : "Red Lobster" }
-{ "name" : "Lure Fishbar" }
-{ "name" : "Sabry'S Seafood Restaurant" }
-{ "name" : "Jamaica Fish Market" }
+Query:
+db.restaurants.find({ "grades.date": {$gte: ISODate("2014-02-01"), $lte: ISODate("2014-03-01")}, "grades.grade":"B", "cuisine": "Seafood"}, {"_id":0, "restaurant_id" : 1,"borough":1});
+
+
+Ans:
+{ "borough" : "Queens", "restaurant_id" : "40367749" }
+{ "borough" : "Manhattan", "restaurant_id" : "40367797" }
+{ "borough" : "Bronx", "restaurant_id" : "40369299" }
+{ "borough" : "Bronx", "restaurant_id" : "40374136" }
+{ "borough" : "Brooklyn", "restaurant_id" : "40380657" }
+{ "borough" : "Manhattan", "restaurant_id" : "40401217" }
+{ "borough" : "Manhattan", "restaurant_id" : "40602783" }
+{ "borough" : "Manhattan", "restaurant_id" : "40665141" }
+{ "borough" : "Manhattan", "restaurant_id" : "40734467" }
+{ "borough" : "Manhattan", "restaurant_id" : "40783353" }
+{ "borough" : "Brooklyn", "restaurant_id" : "40799991" }
+{ "borough" : "Manhattan", "restaurant_id" : "40807227" }
+{ "borough" : "Manhattan", "restaurant_id" : "40928482" }
+{ "borough" : "Manhattan", "restaurant_id" : "40935628" }
+{ "borough" : "Queens", "restaurant_id" : "40941124" }
+{ "borough" : "Brooklyn", "restaurant_id" : "40950686" }
+{ "borough" : "Manhattan", "restaurant_id" : "40966972" }
+{ "borough" : "Manhattan", "restaurant_id" : "41065858" }
+{ "borough" : "Queens", "restaurant_id" : "41172527" }
+{ "borough" : "Queens", "restaurant_id" : "41195053" }
