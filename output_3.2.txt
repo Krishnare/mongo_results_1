@@ -2,15 +2,10 @@ Question: 3.2
 3.2. What is the _id of the restaurant which has the grade with the highest ever score? 
 
 
-db.restaurants.aggregate([{$project: {gradeMax: { $max: "$grades.score"}, "restaurant_id":"$restaurant_id"}},{$sort:{gradeMax:-1}},{$limit:1}])
+db.restaurants.aggregate([{$project: {gradeMax: { $max: "$grades.score"}, _id:1}},{$sort:{gradeMax:-1}},{$limit:1}])
 
 Ans:
-{ 
-	"_id" : ObjectId("5cda658bcc4dd701131cc1e3"), 
-	"gradeMax" : 86, "restaurant_id" : "50000040" 
-
-}
-
+{ "_id" : ObjectId("5ce7d8d83c4c5dd6e606cdbc"), "gradeMax" : 131 }
 
 
 

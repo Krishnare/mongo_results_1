@@ -4,27 +4,27 @@ What are _id and borough of “Seafood” (cuisine) restaurants  which received at l
 
 
 Query:
-db.restaurants.find({ "grades.date": {$gte: ISODate("2014-02-01"), $lte: ISODate("2014-03-01")}, "grades.grade":"B", "cuisine": "Seafood"}, {"_id":0, "restaurant_id" : 1,"borough":1});
+db.restaurants.find({ "grades.date": {$gte: ISODate("2014-02-01"), $lte: ISODate("2014-03-01")}, "grades.grade":"B", "cuisine": "Seafood"}, {"_id":1,"borough":1});
 
 
 Ans:
-{ "borough" : "Queens", "restaurant_id" : "40367749" }
-{ "borough" : "Manhattan", "restaurant_id" : "40367797" }
-{ "borough" : "Bronx", "restaurant_id" : "40369299" }
-{ "borough" : "Bronx", "restaurant_id" : "40374136" }
-{ "borough" : "Brooklyn", "restaurant_id" : "40380657" }
-{ "borough" : "Manhattan", "restaurant_id" : "40401217" }
-{ "borough" : "Manhattan", "restaurant_id" : "40602783" }
-{ "borough" : "Manhattan", "restaurant_id" : "40665141" }
-{ "borough" : "Manhattan", "restaurant_id" : "40734467" }
-{ "borough" : "Manhattan", "restaurant_id" : "40783353" }
-{ "borough" : "Brooklyn", "restaurant_id" : "40799991" }
-{ "borough" : "Manhattan", "restaurant_id" : "40807227" }
-{ "borough" : "Manhattan", "restaurant_id" : "40928482" }
-{ "borough" : "Manhattan", "restaurant_id" : "40935628" }
-{ "borough" : "Queens", "restaurant_id" : "40941124" }
-{ "borough" : "Brooklyn", "restaurant_id" : "40950686" }
-{ "borough" : "Manhattan", "restaurant_id" : "40966972" }
-{ "borough" : "Manhattan", "restaurant_id" : "41065858" }
-{ "borough" : "Queens", "restaurant_id" : "41172527" }
-{ "borough" : "Queens", "restaurant_id" : "41195053" }
+{ "_id" : ObjectId("5ce7d8d83c4c5dd6e606cd61"), "borough" : "Bronx" }
+{ "_id" : ObjectId("5ce7d8d83c4c5dd6e606cddf"), "borough" : "Bronx" }
+{ "_id" : ObjectId("5ce7d8d93c4c5dd6e606ed99"), "borough" : "Bronx" }
+{ "_id" : ObjectId("5ce7d8d93c4c5dd6e606f359"), "borough" : "Bronx" }
+{ "_id" : ObjectId("5ce7d8d93c4c5dd6e60701c8"), "borough" : "Bronx" }
+{ "_id" : ObjectId("5ce7d8d93c4c5dd6e6070a44"), "borough" : "Bronx" }
+{ "_id" : ObjectId("5ce7d8d83c4c5dd6e606ce55"), "borough" : "Brooklyn" }
+{ "_id" : ObjectId("5ce7d8d83c4c5dd6e606d8d8"), "borough" : "Brooklyn" }
+{ "_id" : ObjectId("5ce7d8d83c4c5dd6e606dcae"), "borough" : "Brooklyn" }
+{ "_id" : ObjectId("5ce7d8d93c4c5dd6e606eef5"), "borough" : "Brooklyn" }
+{ "_id" : ObjectId("5ce7d8d93c4c5dd6e606f621"), "borough" : "Brooklyn" }
+{ "_id" : ObjectId("5ce7d8d93c4c5dd6e607048b"), "borough" : "Brooklyn" }
+{ "_id" : ObjectId("5ce7d8d93c4c5dd6e60705e1"), "borough" : "Brooklyn" }
+{ "_id" : ObjectId("5ce7d8d93c4c5dd6e6070a7b"), "borough" : "Brooklyn" }
+{ "_id" : ObjectId("5ce7d8d93c4c5dd6e60712a7"), "borough" : "Brooklyn" }
+{ "_id" : ObjectId("5ce7d8d93c4c5dd6e6071315"), "borough" : "Brooklyn" }
+{ "_id" : ObjectId("5ce7d8d83c4c5dd6e606cd2d"), "borough" : "Manhattan" }
+{ "_id" : ObjectId("5ce7d8d83c4c5dd6e606d145"), "borough" : "Manhattan" }
+{ "_id" : ObjectId("5ce7d8d83c4c5dd6e606d5f9"), "borough" : "Manhattan" }
+{ "_id" : ObjectId("5ce7d8d83c4c5dd6e606d782"), "borough" : "Manhattan" }
