@@ -1,0 +1,17 @@
+Question 4.2
+
+4.2  Drop index from task 4.1 (How many “Chinese” (cuisine) restaurants are in “Queens” (borough)?)
+
+Query:
+
+db.restaurants.createIndex({cuisine:1})
+db.restaurants.createIndex({borough:1})
+
+db.restaurants.getIndexes();
+
+db.restaurants.dropIndex({borough:1})
+db.restaurants.dropIndex({cuisine:1})
+
+Ans:
+{ "nIndexesWas" : 4, "ok" : 1 }
+{ "nIndexesWas" : 4, "ok" : 1 }

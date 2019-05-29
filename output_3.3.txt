@@ -1,0 +1,27 @@
+Question: 3.3
+3.3  Add a grade { grade: "A", score: 7, date: ISODate() } to every restaurant in “Manhattan” (borough)
+
+Query:
+db.restaurants.updateMany(
+    { "borough": "Manhattan"},
+    { "$push": 
+        {"grades": 
+            {
+                "grade": "A",
+                "score": 7,
+		        "date": ISODate()
+            }
+        }
+    }
+)
+
+Ans:
+{ 
+	"acknowledged" : true,
+	"matchedCount" : 10259,
+	"modifiedCount" : 10259 
+}
+
+
+
+

@@ -1,0 +1,23 @@
+Question 3.4:
+
+3.4  What are the names of the restaurants which have a grade at index 8 with score less then 7? Use projection to include only names without _id.
+
+
+Query:
+db.restaurants.find({'grades.8.score':{ '$lt': 7 }},{name: 1, _id: 0})
+
+
+Ans:
+{ "name" : "El Castillo De Madison" }
+{ "name" : "Vee'S Restaurant" }
+{ "name" : "Don Alex Restaurant" }
+{ "name" : "Gahm Mi Oak Restaurant" }
+{ "name" : "Au Za'Atar" }
+{ "name" : "Sunshine 27 Seafood Restaurant" }
+{ "name" : "New Chung Mee Restaurant" }
+{ "name" : "Lucky 11 Bakery" }
+{ "name" : "La Cueva Deli & Grocery" }
+{ "name" : "Kennedy Fried Chicken" }
+{ "name" : "Hoy Wong Restaurant" }
+{ "name" : "Elena'S Restuarant" }
+

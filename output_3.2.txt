@@ -1,0 +1,9 @@
+Question: 3.2
+3.2. What is the _id of the restaurant which has the grade with the highest ever score? 
+
+Ans:
+db.restaurants.find({}, {_id:1}).sort( { "grades.score": -1} ).limit(1)
+
+{ "_id" : ObjectId("5ce7d8d83c4c5dd6e606cdbc") }
+
+
